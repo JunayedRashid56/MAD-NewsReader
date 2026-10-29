@@ -1,35 +1,45 @@
-import * as Device from "expo-device";
-import { Platform, StyleSheet } from "react-native";
+// app/(tabs)/index.tsx
+
+import { StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import ArticleCard from "../../components/article-card";
 
-import { AnimatedIcon } from "@/components/animated-icon";
-import { HintRow } from "@/components/hint-row";
-import { ThemedText } from "@/components/themed-text";
-import { ThemedView } from "@/components/themed-view";
-import { WebBadge } from "@/components/web-badge";
-import { BottomTabInset, MaxContentWidth, Spacing } from "@/constants/theme";
-
-function getDevMenuHint() {
-  if (Platform.OS === "web") {
-    return <ThemedText type="small">use browser devtools</ThemedText>;
-  }
-  if (Device.isDevice) {
-    return (
-      <ThemedText type="small">
-        shake device or press <ThemedText type="code">m</ThemedText> in terminal
-      </ThemedText>
-    );
-  }
-  const shortcut = Platform.OS === "android" ? "cmd+m (or ctrl+m)" : "cmd+d";
+export default function HomeScreen() {
   return (
-    <ThemedText type="small">
-      press <ThemedText type="code">{shortcut}</ThemedText>
-    </ThemedText>
+    <SafeAreaView style={{ flex: 1, backgroundColor: "#F8FAFC" }}>
+      <ArticleCard
+        article={{
+          id: "1",
+          title:
+            "The Future of AI: How Artificial Intelligence is Transforming Industries",
+          author: "John Doe",
+          summary:
+            "Artificial Intelligence (AI) is rapidly changing the way we live and work. From healthcare to finance, AI is being used to improve efficiency, reduce costs, and enhance decision-making. In this article, we explore the various applications of AI across different industries and discuss the potential benefits and challenges associated with its adoption.",
+          body: "Artificial Intelligence (AI) is rapidly changing the way we live and work. From healthcare to finance, AI is being used to improve efficiency, reduce costs, and enhance decision-making...",
+          category: "Tech",
+          date: "2023-10-15",
+        }}
+        onPress={() => {}}
+      />
+    </SafeAreaView>
   );
 }
 
-export default function HomeScreen() {
-  return <></>;
-}
-
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  titleContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 8,
+  },
+  stepContainer: {
+    gap: 8,
+    marginBottom: 8,
+  },
+  reactLogo: {
+    height: 178,
+    width: 290,
+    bottom: 0,
+    left: 0,
+    position: "absolute",
+  },
+});

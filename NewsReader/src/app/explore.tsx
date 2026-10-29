@@ -32,7 +32,7 @@ export default function TabTwoScreen() {
     },
   });
 
-  return <> </>;
+  return <></>;
 }
 
 const styles = StyleSheet.create({});
